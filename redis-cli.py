@@ -420,7 +420,7 @@ def main():
         host.host = args.host
         host.port = args.port
 
-    client = redis.StrictRedis(decode_responses=True, **props(host))
+    client = redis.StrictRedis(decode_responses=True, ssl_cert_reqs=None, **props(host))
 
     if not args.cmd and not args.eval:
         return repl(client)
